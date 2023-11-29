@@ -1,0 +1,30 @@
+$media-range: (
+  sm: 2px,
+  normal: 4px,
+  md: 8px,
+  lg: 16px,
+  xl: 32px,
+  xxl: 64px,
+  auto: auto,
+);
+
+$block-inline: (
+  b: block,
+  i: inline,
+);
+
+@each $key1, $val1 in $block-inline {
+  @each $key2, $val2 in $media-range {
+    .p-#{$key1}-#{$key2} {
+      padding-#{$val1}: $val2;
+    }
+  }
+}
+
+@each $key1, $val1 in $block-inline {
+  @each $key2, $val2 in $media-range {
+    .m-#{$key1}-#{$key2} {
+      margin-#{$val1}: $val2;
+    }
+  }
+}

@@ -1,0 +1,7 @@
+@each $key, $val in $btn-colors {
+  .btn_#{$key} {
+    background-color: $val;
+    border: 2px solid scale-color($val, $lightness: -20%);
+    cursor: pointer;
+  }
+}

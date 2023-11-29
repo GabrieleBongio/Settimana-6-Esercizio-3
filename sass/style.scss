@@ -1,0 +1,104 @@
+// reset
+
+@import "./partials/reset";
+
+// color
+
+@import "./partials/color";
+
+//font-family
+
+@import "./partials/font-family";
+
+//spacings
+
+@import "./partials/spacings";
+
+// buttons
+
+@import "./partials/buttons";
+
+// mixins-generici
+
+@import "./partials/mixins-generici";
+
+// animations
+
+@import "./partials/animations";
+
+// style.scss
+
+body {
+  font-family: $main-font;
+}
+
+header {
+  display: flex;
+}
+
+.flex-3 {
+  @include grid(3, li);
+}
+
+.navbar ul li {
+  @extend .m-i-md;
+  cursor: pointer;
+}
+
+.img {
+  width: 100%;
+  object-fit: cover;
+}
+
+.h-100 {
+  height: 100%;
+}
+
+.logo {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 1px solid black;
+}
+
+.flex-2 {
+  @include grid(2, div);
+}
+
+.hero {
+  color: $text-color;
+  height: 600px;
+}
+
+.bg-hero {
+  background-color: $bg_hero;
+}
+
+.hero-img {
+  @include floating();
+}
+
+h1 {
+  @include title-big();
+}
+
+.flex-4 {
+  @include grid(4, ".card");
+}
+
+.card {
+  @extend .m-i-lg;
+  @include floating(10px, 0px 0px 30px $bg_hero, 2px solid $bg-hero);
+  overflow: hidden;
+}
+
+.card-text {
+  @extend .p-i-md;
+}
+
+@for $i from 1 through 4 {
+  .card:nth-of-type(#{$i}) {
+    @include addAnimation(0.3s, #{$i}s, discesa);
+  }
+}
